@@ -10,8 +10,13 @@ public class Email {
 		private String lastName;
 		private String password;
 		private String department;
+		private String email;
 		private String alternateEmail;
 		private int mailboxCapacity;
+		private String companySuffix = "companyName.com";
+		private int defaultPassLength = 10;
+
+		
 		
 		//Constructor que recibe firstname y lastname
 		
@@ -22,7 +27,15 @@ public class Email {
 			
 			//Llamamos al metodo preguntando por el departamento - y devuelve el departamento
 			this.department = estableceDepartamento(); //llamamos al metodo y lo guardamos en la variable department
-			System.out.println("Departamento: " +this.department); // imprime eleccion
+			System.out.println("Departamento elegido: " +this.department); // imprime eleccion
+			
+			//Llamamos al metodo que devuelve un pass aleatorio
+			this.password = passAleatorio(defaultPassLength);
+			System.out.println("Your password is: " + this.password);
+			
+			// combinamos elementos para generar email 
+			email = firstName.toLowerCase() + "." + lastName.toLowerCase()+ "@"+department + "." +companySuffix;
+			System.out.println("Tu email es: "+ email);
 		}
 		
 		//Metodo Preguntamos por department 
@@ -40,7 +53,15 @@ public class Email {
 		}
 		
 		//Generamos un password aleatorio
-		
+		private String passAleatorio(int length) {
+			String establecePassword= "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
+			char[] password = new char[length];
+			for (int i=0; i<length; i++) {
+				int rand = (int) (Math.random() * establecePassword.length());
+				password[i] = establecePassword.charAt(rand); 
+			}
+			return new String(password);
+		}
 		
 		//Establecemos capacidad del email
 		
