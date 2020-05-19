@@ -15,3 +15,8 @@ Email Aplication
  - Have set methods to change the password, set mailbox capacity, and define an alternate email address.
  - Have get methods to display the name, email, and mailbox capacity.
  
+
+Proyect2
+Basics - Text Processor
+
+- It's a really Basic Text Processor with a basic menu bar, to choose FONT, STYLE, and the SIZE.
